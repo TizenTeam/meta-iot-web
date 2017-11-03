@@ -7,10 +7,12 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7ca
 DEPENDS = "nodejs-native glib-2.0 iotivity"
 RDEPENDS_${PN} += "iotivity-resource"
 
-SRC_URI = "git://github.com/otcshare/iotivity-node.git;protocol=https"
-SRCREV = "63587a0d365fc66ec40dc6d4354329d0c1ff092f"
-
+branch = "sandbox/pcoval/ocf-automotive/devel"
+SRC_URI = "git://github.com/tizenteam/iotivity-node.git;protocol=https;branch=${branch}"
+SRCREV = "${AUTOREV}"
+PV = "0+git${SRCPV}"
 S = "${WORKDIR}/git"
+
 INSANE_SKIP_${PN} += "ldflags staticdev"
 
 do_compile_prepend() {
